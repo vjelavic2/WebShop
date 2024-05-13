@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet">
 </head>
 
@@ -23,7 +23,7 @@
         </div>
 
         <div class="navigation-middle">
-            <h1 class="name">ASPERA COSMETICS</h1>
+            <a href="#intro" class="name" aria-label="Intro" role="link">ASPERA COSMETICS</a>
             <h3 class="author">VALENTINA</h3>
 
             <div class="links" role="navigation" aria-label="Navigation">
@@ -58,7 +58,7 @@
 
     
     <!--------------INTRO---------------->
-    <div class="intro-container">
+    <div class="intro-container" id="intro">
 
         <div class="left-container">
             <h3 class="last-lineup">THE LAST LINEUP</h3>
@@ -70,9 +70,19 @@
 
 
     <!-------------------FOUNDATION--------------->
-    <div class="shopping" id="foundation">
+    
+    <div class="shopping" >
+        <h2 class="f-name" id="foundation">FOUNDATIONS</h2>
+
+        <div class="items-grid">
+        </div>
+
         
+
+
     </div>
 
+
+    <script src="../script.js"></script>
 </body>
 </html>
