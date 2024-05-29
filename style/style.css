@@ -117,8 +117,9 @@ body {
     border: 1px solid #b3848f;
     border-radius: 3px;
     padding: 1em;
-    position: relative; /* Ensure the container is relative positioned */
-    height: 100%; /* Ensure the container takes the full height */
+    position: relative;
+    height: 100%;
+    box-sizing: border-box; /* Ensure padding and border are included in the height */
 }
 
 #foundation, #concealer, #contour, #blush, #highlighter{
@@ -159,7 +160,7 @@ body {
     font-weight: bold;
     text-transform: lowercase;
     text-align: left;
-    width: 100%; /* Ensure the text takes the full width of the container */
+    width: 100%;
 }
 
 .description-item{
@@ -167,23 +168,20 @@ body {
     font-size: 10px;
     text-transform: lowercase;
     margin: 0;
-    text-align: left; /* Align text to the left */
-    width: 100%; /* Ensure the text takes the full width of the container */
+    text-align: left;
+    width: 100%;
 }
 
-.add-to-cart-btn {
+.add-to-cart-btn{
     font-family: "Roboto Mono", monospace;
-    width: 95%;
+    width: 100%;
     text-align: center;
     background-color: white;
     border-radius: 5px;
-    border: 0.5px solid #b3848f !important;
+    border: 0.5px solid darkgrey !important;
     cursor: pointer;
-    position: absolute; /* Absolute positioning */
-    bottom: 5px; /* 5 pixels from the bottom */
-    left: 50%; /* Center the button horizontally */
-    transform: translateX(-50%); /* Adjust for centering */
-    height: 35px;
+    margin-top: auto;
+    height: 20px;
 }
 
 .price-item{
