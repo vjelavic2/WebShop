@@ -1,53 +1,55 @@
-const itemsGrid = document.querySelector('.items-grid');
+document.addEventListener('DOMContentLoaded', function() {
+  const foundationGrid = document.querySelector('.foundation-grid .items-grid');
+  const concealerGrid = document.querySelector('.concealer-grid .items-grid');
+  const contourGrid = document.querySelector('.contour-grid .items-grid');
+  const blushGrid = document.querySelector('.blush-grid .items-grid');
+  const highlighterGrid = document.querySelector('.highlighter-grid .items-grid');
 
-let items = [
-    {
-      id: 1,
-      name: 'White Shoes',
-      price: 121.01,
-      link:"../pics/f6.png",
-    },
-    {
-      id: 2,
-      name: 'Green Shoes',
-      price: 99.99,
-      link:"../pics/f2.png",
-    },
-    {
-      id: 3,
-      name: 'Gray Shoes',
-      price: 102.54,
-      link:"../pics/f3.png",
-    },
-    {
-      id: 4,
-      name: 'Purple Shirt',
-      price: 34.99,
-      link:"../pics/f4.png"
-    },
-    {
-      id: 5,
-      name: 'White Shirt',
-      price: 54.02,
-      link:"../pics/f5.png",
-    },
-    
-  ];
+  // Add other grids as necessary
 
-  function fillItemsGrid() {
-    for (const item of items) {
-      let itemElement = document.createElement('div');
-      itemElement.classList.add('item');
-      itemElement.innerHTML = `
-        <img src="${item.link}" alt="${item.name}">
-        <h2>${item.name}</h2>
-        <p>$${item.price}</p>
-        <button class="add-to-cart-btn" data-id="${item.id}">Add to cart</button>
-      `;
-      itemsGrid.appendChild(itemElement);
-  
-      
-    }
+  function fetchItems() {
+      fetch('fetch_products.php')
+          .then(response => response.json())
+          .then(data => {
+              items = data;
+              fillItemsGrid();
+          })
+          .catch(error => console.error('Error fetching data:', error));
   }
 
-  fillItemsGrid();
+  function fillItemsGrid() {
+      foundationGrid.innerHTML = ''; 
+      concealerGrid.innerHTML = ''; 
+      contourGrid.innerHTML = '';
+      blushGrid.innerHTML = '';
+      highlighterGrid.innerHTML = '';
+
+      for (const item of items) {
+          let itemElement = document.createElement('div');
+          itemElement.classList.add('item');
+          itemElement.innerHTML = `
+              <div class="image-container">
+                  <img src="${item.image}" alt="${item.name}" class="image-item">
+                  <a href="#" class="icon-heart"><i class="bi bi-heart"></i></a>
+              </div>
+              <h5 class="name-item">${item.name}</h5>
+              <p class="description-item">${item.description}</p>
+              <button class="add-to-cart-btn" data-id="${item.id}">add to cart - <span class="price-item">$${item.price}</span></button>
+          `;
+
+          if (item.type === 'Foundation') {
+              foundationGrid.appendChild(itemElement);
+          } else if (item.type === 'Concealer') {
+              concealerGrid.appendChild(itemElement);
+          } else if (item.type === 'Contour') {
+            contourGrid.appendChild(itemElement);
+          } else if (item.type === 'Blush') {
+            blushGrid.appendChild(itemElement);
+          } else if (item.type === 'Highlighter') {
+            highlighterGrid.appendChild(itemElement);
+          }
+      }
+  }
+
+  fetchItems();
+});

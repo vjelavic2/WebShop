@@ -4,80 +4,71 @@ body {
     scroll-behavior: smooth;
 }
 
-
-
 /*NAVIGATION*/
 .navigation-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(214,203,213,255);
-    position:fixed;
-    top:0;
-    width:100%;
-    z-index:100;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
     text-align: center;
-   
 }
 
 .name{
     font-family: 'Libre Baskerville', serif;
-    text-decoration: none ;
+    text-decoration: none;
     color: black;
     margin-bottom: 0;
     font-weight: 700;
     font-size: 35px;
-   
-
 }
+
 .author{
     font-family: "Cormorant Garamond", serif;
     font-weight: 600;
     font-style: normal;
-    margin-top:0;
+    margin-top: 0;
 }
 
 .links{
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
     font-family: "Roboto Mono", monospace;
-    font-optical-sizing: auto; 
+    font-optical-sizing: auto;
     margin-bottom: 3%;
-    padding: 0; 
+    padding: 0;
 }
 
 .linkk{
-    color: #626262; 
-    text-decoration: none; 
+    color: #626262;
+    text-decoration: none;
     padding: 2%;
     box-sizing: border-box;
 }
 .linkk:hover{
-   background-color:#C7C7C7 ;
-   border-radius: 10%; 
+   background-color: #C7C7C7;
+   border-radius: 10%;
 }
-
 
 .icons{
     margin-right: 1%;
-    
 }
 #icon{
     font-size: 24px;
     margin-right: 10px;
-    color: black ;
+    color: black;
 }
-
-
-
 
 /*INTRO*/
 .intro-container{
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
-     background-image: url('../pics/model.png');
+    background-image: url('../pics/model.png');
     background-size: cover;
     background-position: center;
     width: 100%;
@@ -85,38 +76,35 @@ body {
 }
 
 .left-container {
-    flex: 0.8 0 auto; 
+    flex: 0.8 0 auto;
 }
 
 .last-lineup{
-    color:#b3848f;
+    color: #b3848f;
     font-size: 30px;
-    margin:0;
+    margin: 0;
 }
 
 .new-items-1{
     font-family: "Roboto Mono", monospace;
     font-size: 20px;
     margin-top: 0;
-
 }
 
 .shop-items{
     font-size: 20px;
     text-decoration: none;
-    color:black;
+    color: black;
 }
-
 
 /*FOUNDATION*/
 .shopping{
-    background-color:#f8f1f4 ;
+    background-color: #f8f1f4;
 }
-
 
 .items-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 1em;
     margin-top: 1em;
 }
@@ -124,25 +112,84 @@ body {
 .item {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     background-color: white;
-    border: 1px solid #ccc;
+    border: 1px solid #b3848f;
     border-radius: 3px;
     padding: 1em;
+    position: relative; /* Ensure the container is relative positioned */
+    height: 100%; /* Ensure the container takes the full height */
 }
 
-.item h2 {
-    margin-top: 0.5em;
-}
-
-.item p {
-    font-size: 1.2em;
-    margin-top: 0;
-    color:#6c757d;
-}
-
-#foundation{
-    padding-top: 11%;
-    color:#b3848f;
+#foundation, #concealer, #contour, #blush, #highlighter{
+    padding-top: 9%;
+    color: #b3848f;
     font-size: 30px;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+}
+
+.image-item {
+    width: 100%;
+    height: auto;
+}
+
+.icon-heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #b3848f;
+    font-size: 24px;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.icon-heart:hover {
+    color: darkred;
+}
+
+.name-item{
+    margin-top: 25px;
+    font-family: "Roboto Mono", monospace;
+    font-weight: bold;
+    text-transform: lowercase;
+    text-align: left;
+    width: 100%; /* Ensure the text takes the full width of the container */
+}
+
+.description-item{
+    font-family: "Roboto Mono", monospace;
+    font-size: 10px;
+    text-transform: lowercase;
+    margin: 0;
+    text-align: left; /* Align text to the left */
+    width: 100%; /* Ensure the text takes the full width of the container */
+}
+
+.add-to-cart-btn {
+    font-family: "Roboto Mono", monospace;
+    width: 95%;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    border: 0.5px solid #b3848f !important;
+    cursor: pointer;
+    position: absolute; /* Absolute positioning */
+    bottom: 5px; /* 5 pixels from the bottom */
+    left: 50%; /* Center the button horizontally */
+    transform: translateX(-50%); /* Adjust for centering */
+    height: 35px;
+}
+
+.price-item{
+    font-family: "Roboto Mono", monospace;
+    font-size: 10px;
+    text-transform: lowercase;
+    margin: 0;
+    text-align: center;
 }

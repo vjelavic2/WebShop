@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aspera cosmetics</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3./css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3./js/bootstrap.bundle.min.js"></script>
+    <link href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style/add_products.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('success')) {
+                alert(urlParams.get('success'));
+                // Remove the parameter from the URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            } else if (urlParams.has('error')) {
+                alert(urlParams.get('error'));
+                // Remove the parameter from the URL
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="navigation-container" role="navigation">
+        <div class="navigation-middle" id="middle-add">
+            <a href="index.php" class="name" aria-label="Intro" role="link">ASPERA COSMETICS</a>
+            <h3 class="author">VALENTINA</h3>
+        </div>
+    </div>
+
+    <!---------------FORM---------->
+
+    <div class="container-add">
+        <div class="form-box">
+            <div class="welcome-admin">
+                <h1>add products</h1>
+            </div>
+
+            <form action="add_products.php" method="post" enctype="multipart/form-data">
+                <div class="input-products-info">
+                    <input type="text" class="form-control" placeholder="type" id="type" name="type" required>
+                </div>
+                <div class="input-products-info">
+                    <input type="text" class="form-control" placeholder="name" id="name" name="name" required>
+                </div>
+                <div class="input-products-info">
+                    <textarea class="form-control" placeholder="description"  id="description" name="description" rows="3" required></textarea>
+                </div>
+                <div class="input-products-info">
+                    <input type="number" class="form-control" placeholder="price"  id="price" name="price" step="0.01" required>
+                </div>
+                <div class="input-products-info">
+                    <label for="image" class="form-label">image: </label>
+                    <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Product</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
