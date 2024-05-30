@@ -35,7 +35,7 @@
                 <h1 id="title">LOGIN</h1>
 
 
-                <form method="post" action="signin.php">
+                <form method="post" action="login.php">
                 <?php include('errors.php'); ?>
 
                     <div class="input-group">

@@ -28,6 +28,7 @@
                 <a href="#highlighter" class="linkk" aria-label="Highlighters" role="link">highlighter</a>
             </div>
         </div>
+       
         <script>
             window.addEventListener('scroll', function() {
                 var navigationContainer = document.querySelector('.navigation-container');
@@ -41,11 +42,20 @@
         <div class="icons">
             <a href="./wishlist.php" class="bi bi-heart" id="icon"></a>
             <a href="./login.php" class="bi bi-person" id="icon"></a>
-            <a href="./search.php" class="bi bi-search" id="icon"></a>
-            <a href="./cart.php" class="bi bi-bag" id="icon"></a>  
-        </div>
+            <a href="#" class="bi bi-search" id="icon-search"></a>
+            <a href="./cart.php" class="bi bi-bag" id="icon"></a> 
+            <a href="./out.php" class="bi-box-arrow-right" id="icon"></a> 
+       </div>
+        
     </div>
-    
+      <!-- Hidden search form -->
+      <div id="search-form-container" style="display: none;">
+    <form id="search-form">
+        <input type="text" id="search-input" placeholder="search" required>
+    </form>
+</div>
+
+       
     <!--------------INTRO---------------->
     <div class="intro-container" id="intro">
         <div class="left-container">
@@ -81,7 +91,6 @@
             <h2 class="f-name" id="highlighter">HIGHLIGHTER</h2>
             <div class="items-grid"></div>
         </div>
-
     </div>
     
     <script src="../script.js"></script>
