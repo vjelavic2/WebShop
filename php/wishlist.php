@@ -15,18 +15,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Ubuntu+Sans:ital,wght@0,100..800;1,100..800&family=Yanone+Kaffeesatz:wght@200..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-------NAVIGATION-------->
-    <div class="navigation-container" role="navigation">
+     <!-------NAVIGATION-------->
+     <div class="navigation-container" role="navigation">
         <div class="empty"></div>
         <div class="navigation-middle">
-            <a href="#intro" class="name" aria-label="Intro" role="link">ASPERA COSMETICS</a>
+            <a href="./index.php" class="name" aria-label="Intro" role="link">ASPERA COSMETICS</a>
             <h3 class="author">VALENTINA</h3>
-            <div class="links" role="navigation" aria-label="Navigation">
-                <a href="./index.php" class="linkk" aria-label="Foundations" role="link">foundation</a>
-                <a href="./index.php" class="linkk" aria-label="Concealers" role="link">concealer</a>
-                <a href="./index.php" class="linkk" aria-label="Contours" role="link">contour</a>
-                <a href="./index.php" class="linkk" aria-label="Blushes" role="link">blush</a>
-                <a href="./index.php" class="linkk" aria-label="Highlighters" role="link">highlighter</a>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="links" role="navigation" aria-label="Navigation">
+                    <a href="#foundation" class="linkk" aria-label="Foundations" role="link">foundation</a>
+                    <a href="#concealer" class="linkk" aria-label="Concealers" role="link">concealer</a>
+                    <a href="#contour" class="linkk" aria-label="Contours" role="link">contour</a>
+                    <a href="#blush" class="linkk" aria-label="Blushes" role="link">blush</a>
+                    <a href="#highlighter" class="linkk" aria-label="Highlighters" role="link">highlighter</a>
+                </div>
             </div>
         </div>
        
@@ -43,7 +46,6 @@
         <div class="icons">
             <a href="./wishlist.php" class="bi bi-heart" id="icon"></a>
             <a href="./login.php" class="bi bi-person" id="icon"></a>
-            <a href="#" class="bi bi-search" id="icon-search"></a>
             <a href="./cart.php" class="bi bi-bag" id="icon">
                 <span id="cart-counter" class="cart-counter">0</span>
             </a>
@@ -63,11 +65,7 @@
         </script>
     </div>
     
-    <div id="search-form-container" style="display: none;">
-        <form id="search-form">
-            <input type="text" id="search-input" placeholder="search" required>
-        </form>
-    </div>
+   
 
     <div class="container">
         <h1>My Wishlist</h1>

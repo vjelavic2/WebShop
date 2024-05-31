@@ -2,19 +2,20 @@ body {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-
 }
-.holaaa{
-    font-size:20px;
-    margin-top:10%;
+
+.holaaa {
+    font-size: 20px;
+    margin-top: 10%;
     z-index: 1000;
 }
+
 /*NAVIGATION*/
-.navigation-container{
+.navigation-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(214,203,213,255);
+    background-color: rgb(214, 203, 213, 255);
     position: fixed;
     top: 0;
     width: 100%;
@@ -22,7 +23,7 @@ body {
     text-align: center;
 }
 
-.name{
+.name {
     font-family: 'Libre Baskerville', serif;
     text-decoration: none;
     color: black;
@@ -31,14 +32,14 @@ body {
     font-size: 35px;
 }
 
-.author{
+.author {
     font-family: "Cormorant Garamond", serif;
     font-weight: 600;
     font-style: normal;
     margin-top: 0;
 }
 
-.links{
+.links {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,31 +49,36 @@ body {
     padding: 0;
 }
 
-.linkk{
+.linkk {
     color: #626262;
     text-decoration: none;
     padding: 2%;
     box-sizing: border-box;
 }
-.linkk:hover{
-   background-color: #C7C7C7;
-   border-radius: 10%;
+
+.linkk:hover {
+    background-color: #C7C7C7;
+    border-radius: 10%;
 }
 
-.icons{
+.icons {
     margin-right: 1%;
 }
+
 #icon {
     font-size: 24px;
     margin-right: 10px;
     color: black;
-    position: relative; 
+    position: relative;
 }
-#icon-search{
+
+#icon-search {
     font-size: 24px;
     margin-right: 10px;
     color: black;
-}#search-form-container {
+}
+
+#search-form-container {
     margin-top: 10%;
     display: flex;
     align-items: center;
@@ -105,6 +111,7 @@ body {
     text-align: left;
     width: 100%; 
 }
+
 .cart-counter {
     position: absolute;
     top: 0;
@@ -118,7 +125,7 @@ body {
 }
 
 /*INTRO*/
-.intro-container{
+.intro-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -133,26 +140,26 @@ body {
     flex: 0.8 0 auto;
 }
 
-.last-lineup{
+.last-lineup {
     color: #b3848f;
     font-size: 30px;
     margin: 0;
 }
 
-.new-items-1{
+.new-items-1 {
     font-family: "Roboto Mono", monospace;
     font-size: 20px;
     margin-top: 0;
 }
 
-.shop-items{
+.shop-items {
     font-size: 20px;
     text-decoration: none;
     color: black;
 }
 
 /*FOUNDATION*/
-.shopping{
+.shopping {
     background-color: #f8f1f4;
 }
 
@@ -176,7 +183,7 @@ body {
     box-sizing: border-box; /* Ensure padding and border are included in the height */
 }
 
-#foundation, #concealer, #contour, #blush, #highlighter{
+#foundation, #concealer, #contour, #blush, #highlighter {
     padding-top: 9%;
     color: #b3848f;
     font-size: 30px;
@@ -208,7 +215,7 @@ body {
     color: darkred;
 }
 
-.name-item{
+.name-item {
     margin-top: 25px;
     font-family: "Roboto Mono", monospace;
     font-weight: bold;
@@ -217,7 +224,7 @@ body {
     width: 100%;
 }
 
-.description-item{
+.description-item {
     font-family: "Roboto Mono", monospace;
     font-size: 10px;
     text-transform: lowercase;
@@ -226,7 +233,7 @@ body {
     width: 100%;
 }
 
-.add-to-cart-btn{
+.add-to-cart-btn {
     font-family: "Roboto Mono", monospace;
     width: 100%;
     text-align: center;
@@ -238,10 +245,59 @@ body {
     height: 20px;
 }
 
-.price-item{
+.price-item {
     font-family: "Roboto Mono", monospace;
     font-size: 10px;
     text-transform: lowercase;
     margin: 0;
     text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .items-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+    .navbar-toggler {
+        display: block;       
+
+    }
+    .navbar-collapse {
+        display: none;
+    }
+    .navbar-toggler.collapsed + .navbar-collapse {
+        display: flex;
+    }
+    .links {
+        flex-direction: column;
+        width: 100%;
+    }
+    .linkk {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+
+    .left-container{
+        margin-top: -120%;
+    }
+    .last-lineup{
+        font-size: 0px;
+    }
+    .new-items-1{
+        font-size: 0px;
+    }
+    .shop-items{
+        font-size: 0px;
+
+    }
+
+    .name{
+        font-size:14px;
+    }
+   .author{
+    font-size:12px;
+
+    }
 }

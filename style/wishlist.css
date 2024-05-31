@@ -158,3 +158,34 @@ body {
     font-size: 14px;
     font-family: "Roboto Mono", monospace;
 }
+@media (max-width: 768px) {
+    .items-grid {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+    .navbar-toggler {
+        display: block;       
+
+    }
+    .navbar-collapse {
+        display: none;
+    }
+    .navbar-toggler.collapsed + .navbar-collapse {
+        display: flex;
+    }
+    .links {
+        flex-direction: column;
+        width: 100%;
+    }
+    .linkk {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+    .name{
+        font-size:14px;
+    }
+   .author{
+    font-size:12px;
+
+    }
+}

@@ -16,46 +16,57 @@
 
 </head>
 <body>
-    <!-------NAVIGATION-------->
-    <div class="navigation-container" role="navigation">
+<body>
+     <!-------NAVIGATION-------->
+     <div class="navigation-container" role="navigation">
         <div class="empty"></div>
         <div class="navigation-middle">
             <a href="./index.php" class="name" aria-label="Intro" role="link">ASPERA COSMETICS</a>
             <h3 class="author">VALENTINA</h3>
-            <div class="links" role="navigation" aria-label="Navigation">
-                <a href="./index.php" class="linkk" aria-label="Foundations" role="link">foundation</a>
-                <a href="./index.php" class="linkk" aria-label="Concealers" role="link">concealer</a>
-                <a href="./index.php" class="linkk" aria-label="Contours" role="link">contour</a>
-                <a href="./index.php" class="linkk" aria-label="Blushes" role="link">blush</a>
-                <a href="./index.php" class="linkk" aria-label="Highlighters" role="link">highlighter</a>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="links" role="navigation" aria-label="Navigation">
+                    <a href="#foundation" class="linkk" aria-label="Foundations" role="link">foundation</a>
+                    <a href="#concealer" class="linkk" aria-label="Concealers" role="link">concealer</a>
+                    <a href="#contour" class="linkk" aria-label="Contours" role="link">contour</a>
+                    <a href="#blush" class="linkk" aria-label="Blushes" role="link">blush</a>
+                    <a href="#highlighter" class="linkk" aria-label="Highlighters" role="link">highlighter</a>
+                </div>
             </div>
         </div>
+       
         <script>
             window.addEventListener('scroll', function() {
                 var navigationContainer = document.querySelector('.navigation-container');
                 if (window.scrollY > 0) {
-                    navigationContainer.style.backgroundColor = 'white';
+                    navigationContainer.style.backgroundColor = 'white'; 
                 } else {
-                    navigationContainer.style.backgroundColor = '';
+                    navigationContainer.style.backgroundColor = ''; 
                 }
             });
         </script>
         <div class="icons">
             <a href="./wishlist.php" class="bi bi-heart" id="icon"></a>
             <a href="./login.php" class="bi bi-person" id="icon"></a>
-            <a href="#" class="bi bi-search" id="icon-search"></a>
             <a href="./cart.php" class="bi bi-bag" id="icon">
             </a>
             <a href="./out.php" class="bi bi-box-arrow-right" id="icon"></a>
         </div>
+        <script>
+            window.addEventListener('scroll', function() {
+                var cartCounter = document.querySelector('.cart-counter');
+                if (window.scrollY > 0) {
+                    cartCounter.style.backgroundColor = '#b3848f'; 
+                    cartCounter.style.color = 'white'; 
+                } else {
+                    cartCounter.style.backgroundColor = ''; 
+                    cartCounter.style.color = ''; 
+                }
+            });
+        </script>
     </div>
-
-    <!-- Hidden search form -->
-    <div id="search-form-container" style="display: none;">
-        <form id="search-form">
-            <input type="text" id="search-input" placeholder="search" required>
-        </form>
-    </div>
+    
+   
 
     <div class="container">
         <h1>Your Cart</h1>
