@@ -1,16 +1,9 @@
 <?php
 session_start();
 
-
-$username = "";
-$email    = "";
 $errors = array(); 
 
-
-
 $db = mysqli_connect('localhost', 'root', '', 'web-shop');
-
-
 
 if (isset($_POST['reg_user'])) {
   $username = mysqli_real_escape_string($db, $_POST['username']);
@@ -18,79 +11,84 @@ if (isset($_POST['reg_user'])) {
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 
-
-
-
   if (empty($username)) { array_push($errors, "Username is required!"); }
   if (empty($email)) { array_push($errors, "Email is required!"); }
   if (empty($password_1)) { array_push($errors, "Password is required!"); }
-  if ($password_1 != $password_2) {
-	    array_push($errors, "Passwords do not match!");
-  }
+  if ($password_1 != $password_2) { array_push($errors, "Passwords do not match!"); }
 
-  
   $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
-  
 
-
-  if ($user) { 
-    if ($user['username'] === $username) {
-      array_push($errors, "Username already exists!");
-    }
-
-    if ($user['email'] === $email) {
-      array_push($errors, "email already exists!");
-    }
+  if ($user) {
+    if ($user['username'] === $username) { array_push($errors, "Username already exists!"); }
+    if ($user['email'] === $email) { array_push($errors, "Email already exists!"); }
   }
 
-
-
   if (count($errors) == 0) {
-  	$password = md5($password_1);
-
-  	$query = "INSERT INTO users (username, email, password) 
-  			  VALUES('$username', '$email', '$password')";
-  	mysqli_query($db, $query);
-  	$_SESSION['username'] = $username;
-  	$_SESSION['success'] = "Welcome!";
-  	header('location: index.php');
+    $password = md5($password_1);
+    $query = "INSERT INTO users (username, email, password) VALUES('$username', '$email', '$password')";
+    mysqli_query($db, $query);
+    $_SESSION['username'] = $username;
+    $_SESSION['success'] = "Welcome!";
+    header('location: index.php');
   }
 }
 
-
-
-
-
-//LOGIN
 if (isset($_POST['login_user'])) {
   $username = mysqli_real_escape_string($db, $_POST['username']);
   $password = mysqli_real_escape_string($db, $_POST['password']);
 
-
-  if (empty($username)) {
-  	array_push($errors, "Username is required!");
-  }
-
-  if (empty($password)) {
-  	array_push($errors, "Password is required!");
-  }
-
-
+  if (empty($username)) { array_push($errors, "Username is required!"); }
+  if (empty($password)) { array_push($errors, "Password is required!"); }
 
   if (count($errors) == 0) {
-  	$password = md5($password);
-  	$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-  	$results = mysqli_query($db, $query);
-  	if (mysqli_num_rows($results) == 1) {
-  	  $_SESSION['username'] = $username;
-  	  $_SESSION['success'] = "Welcome back!";
-  	  header('location: index.php');
-  	}else {
-  		array_push($errors, "Wrong username/password combination!");
-  	}
+    $password = md5($password);
+    $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    $results = mysqli_query($db, $query);
+    if (mysqli_num_rows($results) == 1) {
+      $_SESSION['username'] = $username;
+      $user = mysqli_fetch_assoc($results);
+      $_SESSION['user_id'] = $user['id'];
+      $_SESSION['success'] = "Welcome back!";
+      header('location: index.php');
+    } else {
+      array_push($errors, "Wrong username/password combination!");
+    }
   }
 }
 
+if (isset($_POST['add_to_wishlist'])) {
+  if (isset($_SESSION['username'])) {
+    $user_id = $_SESSION['user_id'];
+    $product_id = mysqli_real_escape_string($db, $_POST['product_id']);
+
+    $check_query = "SELECT * FROM wishlist WHERE user_id='$user_id' AND product_id='$product_id'";
+    $result = mysqli_query($db, $check_query);
+    if (mysqli_num_rows($result) == 0) {
+      $query = "INSERT INTO wishlist (user_id, product_id) VALUES('$user_id', '$product_id')";
+      mysqli_query($db, $query);
+    }
+  } else {
+    array_push($errors, "You must be logged in to add items to wishlist!");
+  }
+}
+
+if (isset($_POST['remove_from_wishlist'])) {
+  if (isset($_SESSION['username'])) {
+    $user_id = $_SESSION['user_id'];
+    $product_id = mysqli_real_escape_string($db, $_POST['product_id']);
+
+    $query = "DELETE FROM wishlist WHERE user_id='$user_id' AND product_id='$product_id'";
+    mysqli_query($db, $query);
+  } else {
+    array_push($errors, "You must be logged in to remove items from wishlist!");
+  }
+}
+
+function get_wishlist_items($db, $user_id) {
+  $query = "SELECT products.* FROM wishlist JOIN products ON wishlist.product_id = products.id WHERE wishlist.user_id='$user_id'";
+  $result = mysqli_query($db, $query);
+  return mysqli_fetch_all($result, MYSQLI_ASSOC);
+}
 ?>

@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function fetchItems() {
-        fetch('fetch_products.php')
+        fetch('fetch_p.php')
             .then(response => response.json())
             .then(data => {
                 items = data;
@@ -72,6 +72,10 @@ document.addEventListener('DOMContentLoaded', function() {
             <button class="add-to-cart-btn" data-id="${item.id}">add to cart - <span class="price-item">$${item.price}</span></button>
         `;
         itemElement.querySelector('.add-to-cart-btn').addEventListener('click', addToCart);
+        itemElement.querySelector('.icon-heart').addEventListener('click', function(event) {
+            event.preventDefault();
+            addToWishlist(item.id);
+        });
         return itemElement;
     }
 
@@ -152,6 +156,22 @@ document.addEventListener('DOMContentLoaded', function() {
         if (firstMatchedElement) {
             firstMatchedElement.scrollIntoView({ behavior: 'smooth' });
         }
+    }
+
+    function addToWishlist(itemId) {
+        const formData = new FormData();
+        formData.append('add_to_wishlist', true);
+        formData.append('product_id', itemId);
+
+        fetch('server.php', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => console.error('Error adding to wishlist:', error));
     }
 
     fetchItems();
