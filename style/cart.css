@@ -1,0 +1,247 @@
+body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+/* Navigation styles */
+.navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(214, 203, 213);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    text-align: center;
+    padding: 10px;
+}
+
+.name {
+    font-family: 'Libre Baskerville', serif;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 0;
+    font-weight: 700;
+    font-size: 35px;
+}
+
+.author {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    font-style: normal;
+    margin-top: 0;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    padding: 0;
+}
+
+.linkk {
+    color: #626262;
+    text-decoration: none;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.linkk:hover {
+    background-color: #C7C7C7;
+    border-radius: 10%;
+}
+
+.icons {
+    margin-right: 1%;
+}
+
+#icon, #icon-search {
+    
+    font-size: 24px;
+    margin-right: 10px;
+    color: black;
+}
+
+#search-form-container {
+    margin-top: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+#search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: auto;
+    max-width: 90%;
+    margin: 0 5%;
+}
+
+#search-input {
+    font-family: "Roboto Mono", monospace;
+    border: none;
+    color: #b3848f;
+    background-color: transparent;
+    outline: none;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+}
+
+
+.cart-items {
+    margin-top: 100px; 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1em;
+    align-items: start;
+}
+
+.cart-item {
+    margin-top: 7%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #b3848f;
+    border-radius: 3px;
+    padding: 1em;
+    box-sizing: border-box;
+    font-family: "Roboto Mono", monospace;
+}
+
+.cart-item + .cart-item {
+    margin-top: 0;
+}
+
+.image-container {
+    flex: 0 0 auto;
+    margin-right: 1em;
+}
+
+.item-info {
+    flex: 1 1 auto;
+    margin-right: 1em;
+}
+
+.item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+.empty-between{
+    padding: 20px;
+}
+.remove-from-cart-btn {
+    margin-bottom: 0.5em;
+    border: none;
+    background: none;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "Roboto Mono", monospace;
+}
+
+.image-item {
+    max-width: 100px;
+    height: auto;
+    border-radius: 3px;
+}
+
+.name-item,
+.description-item {
+    margin: 0;
+    text-transform: lowercase;
+
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-input {
+    font-family: "Roboto Mono", monospace;
+    border: 2px solid #b3848f;
+    color: #000;
+    background-color: #fff;
+    outline: none;
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+    -moz-appearance: textfield;
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity-btn {
+    font-family: "Roboto Mono", monospace;
+    border: 2px solid #b3848f;
+    color: #fff;
+    background-color: #b3848f;
+    padding: 5px 10px;
+    cursor: pointer;
+    user-select: none;
+    margin: 0 2px;
+}
+
+.quantity-btn:active {
+    background-color: #a0607a;
+}
+
+.total-container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    border-top: 2px solid #b3848f;
+    padding: 10px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+.res-total {
+    font-family: "Roboto Mono", monospace;
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.checkout {
+    display: block;
+    margin: 10px 0;
+    padding: 10px 20px;
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    background-color: #000;
+    border: 2px solid #000;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-family: "Roboto Mono", monospace;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.checkout:hover {
+    background-color: #333;
+}
+.empty-cart-message{
+    margin-top:7%;
+    font-family: "Roboto Mono", monospace;
+
+}

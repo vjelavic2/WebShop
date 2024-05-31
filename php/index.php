@@ -40,12 +40,28 @@
             });
         </script>
         <div class="icons">
-            <a href="./wishlist.php" class="bi bi-heart" id="icon"></a>
-            <a href="./login.php" class="bi bi-person" id="icon"></a>
-            <a href="#" class="bi bi-search" id="icon-search"></a>
-            <a href="./cart.php" class="bi bi-bag" id="icon"></a> 
-            <a href="./out.php" class="bi-box-arrow-right" id="icon"></a> 
-       </div>
+    <a href="./wishlist.php" class="bi bi-heart" id="icon"></a>
+    <a href="./login.php" class="bi bi-person" id="icon"></a>
+    <a href="#" class="bi bi-search" id="icon-search"></a>
+    <a href="./cart.php" class="bi bi-bag" id="icon">
+        <span id="cart-counter" class="cart-counter">0</span>
+    </a>
+    <a href="./out.php" class="bi bi-box-arrow-right" id="icon"></a>
+</div>
+<script>
+            window.addEventListener('scroll', function() {
+                var navigationContainer = document.querySelector('.cart-counter');
+                if (window.scrollY > 0) {
+                    navigationContainer.style.backgroundColor = '#b3848f'; 
+                    navigationContainer.style.color = 'white'; 
+
+                } else {
+                    navigationContainer.style.backgroundColor = ''; 
+                    navigationContainer.style.color = ''; 
+
+                }
+            });
+        </script>
         
     </div>
       <!-- Hidden search form -->

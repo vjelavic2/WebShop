@@ -16,7 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchForm = document.getElementById('search-form');
     const searchInput = document.getElementById('search-input');
 
+    const cartCounter = document.getElementById('cart-counter');
+
     let items = [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    updateCartCounter();
 
     searchIcon.addEventListener('click', function() {
         searchFormContainer.style.display = 'block';
@@ -66,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <p class="description-item">${item.description}</p>
             <button class="add-to-cart-btn" data-id="${item.id}">add to cart - <span class="price-item">$${item.price}</span></button>
         `;
+        itemElement.querySelector('.add-to-cart-btn').addEventListener('click', addToCart);
         return itemElement;
     }
 
@@ -81,6 +87,25 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (type === 'Highlighter') {
             highlighterItemsGrid.appendChild(itemElement);
         }
+    }
+
+    function addToCart(event) {
+        const itemId = event.target.dataset.id;
+        const item = items.find(item => item.id == itemId);
+        if (item) {
+            const cartItem = cart.find(cartItem => cartItem.id == item.id);
+            if (cartItem) {
+                cartItem.quantity += 1;
+            } else {
+                cart.push({ ...item, quantity: 1 });
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCounter();
+        }
+    }
+
+    function updateCartCounter() {
+        cartCounter.textContent = cart.reduce((total, item) => total + item.quantity, 0);
     }
 
     function performSearch(query) {
